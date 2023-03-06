@@ -281,6 +281,13 @@ public enum ConfigNodes {
 			"# at the cost of more work setting up. Also, extremely small values will render the caching done useless.",
 			"# Each cell is (town_block_size * town_block_size * height-of-the-world) in size, with height-of-the-world",
 			"# being from the bottom to the top of the build-able world."),
+	TOWN_MIN_ADJACENT_BLOCKS(
+			"town.min_adjacent_blocks",
+			"-1",
+			"",
+			"# The minimum adjacent town blocks required to expand.",
+			"# This can prevent long lines and snake-like patterns.",
+			"# Set to -1 to disable. Set to 3 to force wider expansions of towns."),
 	
 	NATION("nation", "", "", "",
 			"############################################################",
@@ -2045,6 +2052,11 @@ public enum ConfigNodes {
 			"false",
 			"",
 			"# When true only residents who have no town will be deleted."),
+	RES_SETTINGS_DELETE_OLD_RESIDENTS_REMOVE_TOWN_ONLY(
+			"resident_settings.delete_old_residents.only_remove_town",
+			"false",
+			"",
+			"# When true players will be removed from their town and become a nomad instead of being fully deleted."),
 	RES_SETTING_DEFAULT_TOWN_NAME(
 			"resident_settings.default_town_name",
 			"",
@@ -2616,14 +2628,12 @@ public enum ConfigNodes {
 			"jail.is_jailing_attacking_enemies",
 			"false",
 			"",
-			"# If true attacking players who die on enemy-town land will be placed into the defending town's jail if it exists.",
-			"# Requires town_respawn to be true in order to work."),
+			"# If true attacking players who die on enemy-town land will be placed into the defending town's jail if it exists."),
 	JAIL_IS_JAILING_ATTACKING_OUTLAWS(
 			"jail.is_jailing_attacking_outlaws",
 			"false",
 			"",
-			"# If true attacking players who are considered an outlaw, that are killed inside town land will be placed into the defending town's jail if it exists.",
-			"# Requires town_respawn to be true in order to work."),
+			"# If true attacking players who are considered an outlaw, that are killed inside town land will be placed into the defending town's jail if it exists."),
 	JAIL_OUTLAW_JAIL_HOURS(
 			"jail.outlaw_jail_hours",
 			"5",

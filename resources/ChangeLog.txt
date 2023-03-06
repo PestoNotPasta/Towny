@@ -8368,3 +8368,50 @@ v0.92.0.11:
     - Closes #5037.
   - Fix nations that collect towntax being able to get above their nation bank cap.
   - Fix towns and nations from collecting tax amounts that equal 0.
+  - Option to prevent people from claiming in a straight line, courtesy of JKJameson with PR #6482. (First-Time Contributor!)
+    - Closes #6080.
+  - New Config Option: town.min_adjacent_blocks
+    - Default: -1
+    - The minimum adjacent town blocks required to expand.
+    - This can prevent long lines and snake-like patterns.
+    - Set to -1 to disable. Set to 3 to force wider expansions of towns.
+  - API: TownBlockPermissionChangeEvent, courtesy of Pesto with PR #6453.
+    - Adds a cancellable event that is fired when a TownBlock is about to have its permission line changed. 
+  - Fix switch and item use being triggered on left-click, courtesy of Pesto with PR #6495.
+    - Closes #6494.
+  - Bump bstats-bukkit from 3.0.0 to 3.0.1.
+  - Bump maven-javadoc-plugin from 3.4.1 to 3.5.0.
+0.98.6.8:
+  - Reduce number of potential NotRegisterExceptions being thrown.
+  - Fix claiming free plots causing useless bank history, courtesy of Warriorrrr with PR #6499.
+  - Remove /plot claim repossesion logic in favour of /plot evict, courtesy of Warriorrrr with PR #6500.
+  - Only remove non embassies from the left town on resident leave, courtesy of Warriorrrr with PR #6501.
+  - Fix /ta unclaim causing an NPE, courtesy of Warriorrrr with PR #6504.
+  - Minor changes to reduce NRE usage.
+  - Replace messaging used by BaseCommand's getOrThrow methods to be more relevant to players.
+  - Replace getResidentOrThrow(UUID) with getResidentOrThrow(Player) for better feedback messages.
+0.98.6.9:
+  - Add remove town only option to resident purge, courtesy of Warriorrrr with PR #6508.
+    - Closes #6506.
+  - New Config Option: resident_settings.delete_old_residents.only_remove_town
+    - Default: false
+    - When true players will be removed from their town and become a nomad instead of being fully deleted.
+  - Update plugin.yml to use the proper name for MyWorlds, courtesy of bergerkiller with PR #6511. (First-Time Contributor!)
+  - Fix king prefix not showing.
+  - Fix min_adjacent_blocks setting breaking outposts, courtesy of JKJameson & LlmDl with PR #6510.
+    - Closes #6505.
+  - BankAccount update.
+    - Old constructor deprecated, setting balanceCap deprecated.
+    - Potentially fixes the ability for a town to go bankrupt when this feature is disabled.
+  - API: TownEntersBankruptcyEvent.
+    - Thrown when a town enters bankruptcy.
+0.98.6.10:
+  - Update paper repo url, courtesy of Warriorrrr with PR #6520.
+  - API: Add PlayerChangePlotTypeEvent.
+    - Thrown after a player successfully changes a TownBlock's plot type.
+  - Bump log4j-core from 2.19.0 to 2.20.0.
+  - Remove town_spawn: true requirement for jailing altering jailed player's spawn points.
+  - Alter the TownBlockTypeHandler to be able to receive TownBlockTypes from other plugins on server startup.
+0.98.6.11:
+  - Fix sql source query NPE, courtesy of Warriorrrr with PR #6527.
+  - Fix /ta set mayor causing an npe if the old mayor is null, courtesy of Warriorrrr with PR #6528.
